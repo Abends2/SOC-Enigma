@@ -81,7 +81,7 @@ powershell.exe -ExecutionPolicy Bypass -C gc c:\windows\temp\1.log
 
 В период с 4 до 5 был захвачен хост, а также контроллер домена - узел 2861b798-eed1-40f8-8487-21c836ed782f.
 
-
+![ScreenShot](screenshots/5.jpg)
 
 ### Тип атаки
 **Тип угрозы:** НСД
